@@ -1,0 +1,7 @@
+E:\Platzi\2_Ejercicios\fundamentos_c#_netcore\Etapa1\obj\Debug\Etapa1.csprojAssemblyReference.cache
+E:\Platzi\2_Ejercicios\fundamentos_c#_netcore\Etapa1\obj\Debug\Etapa1.csproj.CoreCompileInputs.cache
+E:\Platzi\2_Ejercicios\fundamentos_c#_netcore\Etapa1\bin\Debug\Etapa1.exe.config
+E:\Platzi\2_Ejercicios\fundamentos_c#_netcore\Etapa1\bin\Debug\Etapa1.exe
+E:\Platzi\2_Ejercicios\fundamentos_c#_netcore\Etapa1\bin\Debug\Etapa1.pdb
+E:\Platzi\2_Ejercicios\fundamentos_c#_netcore\Etapa1\obj\Debug\Etapa1.exe
+E:\Platzi\2_Ejercicios\fundamentos_c#_netcore\Etapa1\obj\Debug\Etapa1.pdb
