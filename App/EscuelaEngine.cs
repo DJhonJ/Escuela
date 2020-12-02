@@ -41,29 +41,28 @@ namespace CoreEscuela.App
         {
             return new List<Asignatura>()
             {
-                new Asignatura() { Nombre = "Matemáticas", Evaluciones = InitEvaluaciones() },
-                new Asignatura() { Nombre = "Castellano", Evaluciones = InitEvaluaciones() },
-                new Asignatura() { Nombre = "Química", Evaluciones = InitEvaluaciones() }
+                new Asignatura() { Nombre = "Matemáticas", Evaluciones = InitEvaluaciones("Matemáticas") },
+                new Asignatura() { Nombre = "Castellano", Evaluciones = InitEvaluaciones("Castellano") },
+                new Asignatura() { Nombre = "Química", Evaluciones = InitEvaluaciones("Química") }
             };
         }
 
-        private List<Evaluacion> InitEvaluaciones()
+        private List<Evaluacion> InitEvaluaciones(string asignatura)
         {
+            string[] evaluaciones = { "Quiz 1", "Quiz 2", "Examen intermedio",  "Quiz 3", "Examen final" };
+
             string GenerarNombre() {
 
-                var nombre = from curso in this.Escuela.Cursos
-                             from asig in curso.Asignaturas
-                             select asig.Nombre;
+                var nombre = from evaluacion in evaluaciones
+                             select string.Format("{0} {1}", evaluacion, asignatura);
 
                 return nombre.First().ToString();
             }
 
-            string a = GenerarNombre();
-
             return new List<Evaluacion>()
             {
 
-                new Evaluacion() { Nombre = a },
+                new Evaluacion() { Nombre = GenerarNombre() },
                 new Evaluacion() { Nombre = GenerarNombre() },
                 new Evaluacion() { Nombre = GenerarNombre() },
                 new Evaluacion() { Nombre = GenerarNombre() },
