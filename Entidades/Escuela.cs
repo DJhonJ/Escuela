@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoreEscuela.Entidades
 {
-    class Escuela
+    sealed class Escuela
     {
         private string name;
         public string Name

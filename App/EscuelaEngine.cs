@@ -8,7 +8,7 @@ using CoreEscuela.Util;
 
 namespace CoreEscuela.App
 {
-    class EscuelaEngine
+    sealed class EscuelaEngine
     {
         public Escuela Escuela { get; set; }
 
@@ -21,7 +21,6 @@ namespace CoreEscuela.App
             };
 
             Escuela.Cursos = InitCursos();
-            
         }
 
         private List<Curso> InitCursos()
@@ -39,35 +38,34 @@ namespace CoreEscuela.App
 
         private List<Asignatura> InitAsignaturas()
         {
-            return new List<Asignatura>()
+            string[] nombres = { "Matemáticas", "Castellano", "Química" };
+            List<Asignatura> asignaturas = new List<Asignatura>();
+
+            foreach (string nombre in nombres)
             {
-                new Asignatura() { Nombre = "Matemáticas", Evaluciones = InitEvaluaciones("Matemáticas") },
-                new Asignatura() { Nombre = "Castellano", Evaluciones = InitEvaluaciones("Castellano") },
-                new Asignatura() { Nombre = "Química", Evaluciones = InitEvaluaciones("Química") }
-            };
+                asignaturas.Add(new Asignatura() { Nombre = nombre, Evaluciones = InitEvaluaciones(nombre) });
+            }
+
+            return asignaturas;
         }
 
         private List<Evaluacion> InitEvaluaciones(string asignatura)
         {
             string[] evaluaciones = { "Quiz 1", "Quiz 2", "Examen intermedio",  "Quiz 3", "Examen final" };
+            List<Evaluacion> listEvaluaciones = new List<Evaluacion>();
+            Random random = new Random();
 
-            string GenerarNombre() {
+            string GenerarNombre(int indice) {
 
-                var nombre = from evaluacion in evaluaciones
-                             select string.Format("{0} {1}", evaluacion, asignatura);
-
-                return nombre.First().ToString();
+                return string.Format("{1} {0}", asignatura, evaluaciones[indice]);
             }
 
-            return new List<Evaluacion>()
+            for (int i = 0; i < 5; i++)
             {
+                listEvaluaciones.Add(new Evaluacion() { Nombre = GenerarNombre(i), Nota = (float)random.NextDouble() });
+            }
 
-                new Evaluacion() { Nombre = GenerarNombre() },
-                new Evaluacion() { Nombre = GenerarNombre() },
-                new Evaluacion() { Nombre = GenerarNombre() },
-                new Evaluacion() { Nombre = GenerarNombre() },
-                new Evaluacion() { Nombre = GenerarNombre() }
-            };
+            return listEvaluaciones;
         }
 
         private List<Alumno> InitAlumnos()

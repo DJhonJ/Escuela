@@ -48,6 +48,7 @@
     <Compile Include="Entidades\Asignatura.cs" />
     <Compile Include="Entidades\Curso.cs" />
     <Compile Include="Entidades\Escuela.cs" />
+    <Compile Include="Entidades\EscuelaBase.cs" />
     <Compile Include="Entidades\Evaluacion.cs" />
     <Compile Include="Entidades\TipoEscuela.cs" />
     <Compile Include="Entidades\TipoJornada.cs" />

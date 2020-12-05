@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoreEscuela.Entidades
 {
-    class Alumno
+    class Alumno : EscuelaBase
     {
-        public Guid Id { get; set; }
-        public string Nombre { get; set; }
-
-        public Alumno()
-        {
-            Id = Guid.NewGuid();
-        }
     }
 }

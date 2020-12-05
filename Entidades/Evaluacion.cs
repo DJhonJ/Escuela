@@ -6,14 +6,8 @@ using System.Threading.Tasks;
 
 namespace CoreEscuela.Entidades
 {
-    class Evaluacion
+    class Evaluacion: EscuelaBase
     {
-        public Guid Id { get; set; }
-        public string Nombre { get; set; }
-
-        public Evaluacion()
-        {
-            Id = Guid.NewGuid();
-        }
+        public float Nota { get; set; }
     }
 }
