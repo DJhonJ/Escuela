@@ -104,8 +104,13 @@ namespace CoreEscuela.App
             {
                 escuela.Cursos.AsEnumerable().ToList().ForEach(curso =>
                 {
-                    Console.WriteLine(string.Format("Id: {0}, Nombre: {1}, Jornada: {2}",
-                                      curso.Id, curso.Nombre, curso.Jornada));
+                    curso.Asignaturas.ForEach(asignatura =>
+                    {
+                        asignatura.Evaluciones.ForEach(evaluacion => {
+                            Console.WriteLine(string.Format("Curso: {0}, Jornada: {1}, Asignatura: {2}, Evaluaciones: {3}",
+                                      curso.Nombre, curso.Jornada, asignatura.Nombre, evaluacion.Nombre));
+                        });
+                    });
                 });
             }
         }

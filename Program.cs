@@ -21,6 +21,7 @@ namespace CoreEscuela
 
             engine.ImprimirCursos(engine.Escuela);
             engine.ImprimirAlumnos(engine.Escuela);
+            engine.ImprimirEvaluaciones(engine.Escuela);
 
             //Stopwatch tiempo = Stopwatch.StartNew();
 
