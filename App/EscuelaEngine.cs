@@ -23,8 +23,22 @@ namespace CoreEscuela.App
             Escuela.Cursos = InitCursos();
         }
 
+        public Dictionary<string, IEnumerable<EscuelaBase>> GetEscuelaDictionary()
+        {
+            var diccionario = new Dictionary<string, IEnumerable<EscuelaBase>>()
+            {
+                { "Escuela", new [] { Escuela } },
+                { "Cursos", Escuela.Cursos }
+            };
+
+            //diccionario.Add("Escuela", new[] { Escuela });
+            //diccionario.Add("Cursos", Escuela.Cursos);
+
+            return diccionario;
+        }
+
         //los datos que se retornen seran de solo lectura (no se modificaran)
-        public IReadOnlyCollection<EscuelaBase> GetEstructuratEscuela()
+        public IReadOnlyCollection<EscuelaBase> GetEstructuratEscuelaList()
         {
             List<EscuelaBase> listEscuelaBase = new List<EscuelaBase>();
             listEscuelaBase.Add(Escuela);

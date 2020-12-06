@@ -26,7 +26,7 @@ namespace CoreEscuela
 
             engine.Escuela.Limpiar();
 
-            var lista = engine.GetEstructuratEscuela();
+            var lista = engine.GetEstructuratEscuelaList();
             
             Console.ReadKey();
         }
