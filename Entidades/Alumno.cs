@@ -8,5 +8,9 @@ namespace CoreEscuela.Entidades
 {
     class Alumno : EscuelaBase
     {
+        public override string ToString()
+        {
+            return $"Alumnno: {Nombre}";
+        }
     }
 }

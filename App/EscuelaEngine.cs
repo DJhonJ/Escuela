@@ -23,6 +23,35 @@ namespace CoreEscuela.App
             Escuela.Cursos = InitCursos();
         }
 
+        //los datos que se retornen seran de solo lectura (no se modificaran)
+        public IReadOnlyCollection<EscuelaBase> GetEstructuratEscuela()
+        {
+            List<EscuelaBase> listEscuelaBase = new List<EscuelaBase>();
+            listEscuelaBase.Add(Escuela);
+            
+            foreach (var curso in Escuela.Cursos)
+            {
+                listEscuelaBase.Add(curso);
+
+                curso.Alumnos.ForEach(alumno => {
+                    listEscuelaBase.Add(alumno);
+                });
+
+                curso.Asignaturas.ForEach(asignatura =>
+                {
+                    listEscuelaBase.Add(asignatura);
+
+                    asignatura.Evaluciones.ForEach(evaluacion => {
+                        listEscuelaBase.Add(evaluacion);
+                    });
+                });
+            }
+
+            return listEscuelaBase;
+        }
+
+        #region inicializadores de datos
+
         private List<Curso> InitCursos()
         {
             return new List<Curso>()
@@ -80,6 +109,10 @@ namespace CoreEscuela.App
             return estudiantes.ToList();
         }
 
+        #endregion
+
+        #region metodos imprimir
+
         public void ImprimirCursos()
         {
             Printer.WriteTitle("Cursos");
@@ -131,5 +164,7 @@ namespace CoreEscuela.App
                 });
             }
         }
+
+        #endregion
     }
 }

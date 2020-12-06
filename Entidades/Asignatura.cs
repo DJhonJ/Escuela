@@ -12,7 +12,7 @@ namespace CoreEscuela.Entidades
 
         public override string ToString()
         {
-            return base.ToString();
+            return $"Asignatura: {Nombre}";
         }
     }
 }

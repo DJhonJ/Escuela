@@ -9,5 +9,10 @@ namespace CoreEscuela.Entidades
     class Evaluacion: EscuelaBase
     {
         public float Nota { get; set; }
+
+        public override string ToString()
+        {
+            return $"Evaluación: {Nombre}";
+        }
     }
 }

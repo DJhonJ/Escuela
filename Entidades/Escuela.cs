@@ -7,14 +7,8 @@ using System.Threading.Tasks;
 
 namespace CoreEscuela.Entidades
 {
-    sealed class Escuela: ILugar
+    sealed class Escuela: EscuelaBase, ILugar
     {
-        public string Name
-        {
-            get;
-            set;
-        }
-
         public string Country { get; set; }
         public int Year { get; set; }
         public TipoEscuela TipoEscuela { get; set; }
@@ -23,16 +17,16 @@ namespace CoreEscuela.Entidades
 
         public Escuela(string name, string country)
         {
-            Name = name;
+            Nombre = name;
             Country = country;
         }
 
-        public Escuela(string name) => (Name) = (name);
+        public Escuela(string name) => (Nombre) = (name);
 
         public override string ToString()
         {
             return string.Format("Nombre: {0}, Pais: {1}\nTipo de Escuela: {2}, Año de creación: {3}", 
-                Name, Country, TipoEscuela, Year);
+                Nombre, Country, TipoEscuela, Year);
         }
 
         public void Limpiar()
@@ -44,7 +38,7 @@ namespace CoreEscuela.Entidades
                 curso.Limpiar();
             }
 
-            Printer.WriteTitle($"Escuela {Name} limpia.");
+            Printer.WriteTitle($"Escuela {Nombre} limpia.");
         }
     }
 }

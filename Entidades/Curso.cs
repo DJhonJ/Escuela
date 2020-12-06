@@ -20,5 +20,10 @@ namespace CoreEscuela.Entidades
             Console.WriteLine(string.Format("Limpiando Curso {0} ...", Nombre));
             Console.WriteLine("Curso limpio");
         }
+
+        public override string ToString()
+        {
+            return string.Format("Curso: {0}", Nombre);
+        }
     }
 }
