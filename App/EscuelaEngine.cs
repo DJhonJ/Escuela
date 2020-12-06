@@ -80,14 +80,14 @@ namespace CoreEscuela.App
             return estudiantes.ToList();
         }
 
-        public void ImprimirCursos(Escuela escuela)
+        public void ImprimirCursos()
         {
             Printer.WriteTitle("Cursos");
 
-            if (escuela.Cursos.Count == 0) Console.WriteLine("Ninguno");
+            if (Escuela.Cursos.Count == 0) Console.WriteLine("Ninguno");
             else
             {
-                escuela.Cursos.AsEnumerable().ToList().ForEach(curso =>
+                Escuela.Cursos.AsEnumerable().ToList().ForEach(curso =>
                 {
                     Console.WriteLine(string.Format("Id: {0}, Nombre: {1}, Jornada: {2}", 
                                       curso.Id, curso.Nombre, curso.Jornada));
@@ -95,14 +95,14 @@ namespace CoreEscuela.App
             }
         }
 
-        public void ImprimirEvaluaciones(Escuela escuela)
+        public void ImprimirEvaluaciones()
         {
             Printer.WriteTitle("Evaluaciones");
 
-            if (escuela.Cursos.First().Asignaturas.First().Evaluciones.Count == 0) Console.WriteLine("No hay Evaluaciones");
+            if (Escuela.Cursos.First().Asignaturas.First().Evaluciones.Count == 0) Console.WriteLine("No hay Evaluaciones");
             else
             {
-                escuela.Cursos.AsEnumerable().ToList().ForEach(curso =>
+                Escuela.Cursos.AsEnumerable().ToList().ForEach(curso =>
                 {
                     curso.Asignaturas.ForEach(asignatura =>
                     {
@@ -115,17 +115,21 @@ namespace CoreEscuela.App
             }
         }
 
-        public void ImprimirAlumnos(Escuela escuela)
+        public void ImprimirAlumnos()
         {
             Printer.WriteTitle("Alumnos");
 
-            escuela.Cursos.AsEnumerable().ToList().ForEach(curso =>
+            if (Escuela.Cursos.First().Alumnos.Count == 0) Console.WriteLine("No hay alumnos.");
+            else
             {
-                curso.Alumnos.AsEnumerable().ToList().ForEach(alumno => {
-                    Console.WriteLine(string.Format("Alumno: {0}, Curso: {1}, Jornada: {2}", 
-                                      alumno.Nombre, curso.Nombre, curso.Jornada));
+                Escuela.Cursos.AsEnumerable().ToList().ForEach(curso =>
+                {
+                    curso.Alumnos.AsEnumerable().ToList().ForEach(alumno => {
+                        Console.WriteLine(string.Format("Alumno: {0}, Curso: {1}, Jornada: {2}",
+                                          alumno.Nombre, curso.Nombre, curso.Jornada));
+                    });
                 });
-            });
+            }
         }
     }
 }

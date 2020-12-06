@@ -19,9 +19,11 @@ namespace CoreEscuela
 
             Printer.WriteTitle("BIENVENIDO");
 
-            engine.ImprimirCursos(engine.Escuela);
-            engine.ImprimirAlumnos(engine.Escuela);
-            engine.ImprimirEvaluaciones(engine.Escuela);
+            engine.ImprimirCursos();
+            engine.ImprimirAlumnos();
+            engine.ImprimirEvaluaciones();
+
+            engine.Escuela.Limpiar();
 
             //Stopwatch tiempo = Stopwatch.StartNew();
 

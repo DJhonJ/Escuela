@@ -9,5 +9,10 @@ namespace CoreEscuela.Entidades
     class Asignatura: EscuelaBase
     {
         public List<Evaluacion> Evaluciones { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }
