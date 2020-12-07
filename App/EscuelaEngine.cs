@@ -23,16 +23,29 @@ namespace CoreEscuela.App
             Escuela.Cursos = InitCursos();
         }
 
-        public Dictionary<string, IEnumerable<EscuelaBase>> GetEscuelaDictionary()
+        public Dictionary<LlaveDiccionario, IEnumerable<EscuelaBase>> GetEscuelaDictionary()
         {
-            var diccionario = new Dictionary<string, IEnumerable<EscuelaBase>>()
+            var diccionario = new Dictionary<LlaveDiccionario, IEnumerable<EscuelaBase>>()
             {
-                { "Escuela", new [] { Escuela } },
-                { "Cursos", Escuela.Cursos }
+                { LlaveDiccionario.Escuela, new [] { Escuela } },
+                { LlaveDiccionario.Curso, Escuela.Cursos }
             };
 
-            //diccionario.Add("Escuela", new[] { Escuela });
-            //diccionario.Add("Cursos", Escuela.Cursos);
+            List<Alumno> alumnos = new List<Alumno>();
+            List<Asignatura> asignaturas = new List<Asignatura>();
+            List<Evaluacion> evaluaciones = new List<Evaluacion>();
+
+            Escuela.Cursos.ForEach(curso =>
+            {
+                alumnos.AddRange(curso.Alumnos);
+                asignaturas.AddRange(curso.Asignaturas);
+
+                curso.Asignaturas.ForEach(asignatura => evaluaciones.AddRange(asignatura.Evaluciones));
+            });
+
+            diccionario.Add(LlaveDiccionario.Alumno, alumnos);
+            diccionario.Add(LlaveDiccionario.Asignatura, asignaturas);
+            diccionario.Add(LlaveDiccionario.Evaluacion, evaluaciones);
 
             return diccionario;
         }
@@ -47,17 +60,13 @@ namespace CoreEscuela.App
             {
                 listEscuelaBase.Add(curso);
 
-                curso.Alumnos.ForEach(alumno => {
-                    listEscuelaBase.Add(alumno);
-                });
+                curso.Alumnos.ForEach(alumno => listEscuelaBase.Add(alumno));
 
                 curso.Asignaturas.ForEach(asignatura =>
                 {
                     listEscuelaBase.Add(asignatura);
 
-                    asignatura.Evaluciones.ForEach(evaluacion => {
-                        listEscuelaBase.Add(evaluacion);
-                    });
+                    asignatura.Evaluciones.ForEach(evaluacion => listEscuelaBase.Add(evaluacion));
                 });
             }
 
@@ -177,6 +186,20 @@ namespace CoreEscuela.App
                     });
                 });
             }
+        }
+
+        public void ImprimirDiccionario(Dictionary<LlaveDiccionario, IEnumerable<EscuelaBase>> diccionario)
+        {
+            diccionario.ToList().ForEach(obj =>
+            {
+                Printer.WriteTitle(obj.Key.ToString());
+
+                obj.Value.ToList().ForEach(val => {
+
+                    Console.WriteLine(val);
+
+                });
+            });
         }
 
         #endregion

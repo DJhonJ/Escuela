@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace CoreEscuela.Entidades
 {
-    class Alumno : EscuelaBase
+    enum LlaveDiccionario
     {
-        public override string ToString()
-        {
-            return $"Alumno: {Nombre}";
-        }
+        Escuela,
+        Curso,
+        Alumno,
+        Asignatura,
+        Evaluacion
     }
 }

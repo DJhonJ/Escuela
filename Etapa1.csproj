@@ -51,6 +51,7 @@
     <Compile Include="Entidades\EscuelaBase.cs" />
     <Compile Include="Entidades\Evaluacion.cs" />
     <Compile Include="Entidades\ILugar.cs" />
+    <Compile Include="Entidades\LlaveDiccionario.cs" />
     <Compile Include="Entidades\TipoEscuela.cs" />
     <Compile Include="Entidades\TipoJornada.cs" />
     <Compile Include="Program.cs" />

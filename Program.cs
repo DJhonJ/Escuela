@@ -20,27 +20,17 @@ namespace CoreEscuela
 
             Printer.WriteTitle("BIENVENIDO");
 
-            engine.ImprimirCursos();
-            engine.ImprimirAlumnos();
-            engine.ImprimirEvaluaciones();
+            //engine.ImprimirCursos();
+            //engine.ImprimirAlumnos();
+            //engine.ImprimirEvaluaciones();
 
-            engine.Escuela.Limpiar();
+            //engine.Escuela.Limpiar();
 
-            var lista = engine.GetEstructuratEscuelaList();
-            
+            //var lista = engine.GetEstructuratEscuelaList();
+            var dictionary = engine.GetEscuelaDictionary();
+            engine.ImprimirDiccionario(dictionary);
+
             Console.ReadKey();
         }
-
-        //private static void ImprimirCursos(Escuela escuela)
-        //{
-        //    if (escuela.Cursos.Count == 0) Console.WriteLine("Ninguno");
-        //    else
-        //    {
-        //        escuela.Cursos.AsEnumerable().ToList().ForEach(curso =>
-        //        {
-        //            Console.WriteLine(string.Format("Id: {0}, Nombre: {1}, Jornada: {2}", curso.Id, curso.Nombre, curso.Jornada));
-        //        });
-        //    }
-        //}
     }
 }
