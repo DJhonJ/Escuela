@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App\EscuelaEngine.cs" />
+    <Compile Include="App\Reporteador.cs" />
     <Compile Include="Entidades\Alumno.cs" />
     <Compile Include="Entidades\Asignatura.cs" />
     <Compile Include="Entidades\Curso.cs" />

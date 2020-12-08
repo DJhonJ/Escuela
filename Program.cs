@@ -27,8 +27,11 @@ namespace CoreEscuela
             //engine.Escuela.Limpiar();
 
             //var lista = engine.GetEstructuratEscuelaList();
-            var dictionary = engine.GetEscuelaDictionary();
-            engine.ImprimirDiccionario(dictionary);
+            //var dictionary = engine.GetEscuelaDictionary();
+            //engine.ImprimirDiccionario(dictionary);
+
+            Reporteador reporte = new Reporteador(engine.GetEscuelaDictionary());
+            reporte.GetListAsignaturas();
 
             Console.ReadKey();
         }
