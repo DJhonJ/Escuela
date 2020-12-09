@@ -32,6 +32,7 @@ namespace CoreEscuela
 
             Reporteador reporte = new Reporteador(engine.GetEscuelaDictionary());
             reporte.GetListAsignaturas();
+            var evaluaciones = reporte.GetListEvaluaciones();
 
             Console.ReadKey();
         }

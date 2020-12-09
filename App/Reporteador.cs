@@ -25,5 +25,14 @@ namespace CoreEscuela.App
 
             return null;
         }
+
+        public IEnumerable<string> GetListEvaluaciones()
+        {
+            var asignaturas = GetListAsignaturas();
+
+            return (from Asignatura a in asignaturas
+                    from Evaluacion ev in a.Evaluciones
+                    select ev.Nombre).Distinct();
+        }
     }
 }
